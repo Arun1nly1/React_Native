@@ -10,12 +10,27 @@ import {
   Alert,
   Platform,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 
+import {
+  useDeviceOrientation,
+  useDimensions,
+} from '@react-native-community/hooks';
+
 export default function App() {
+  const { landscape } = useDeviceOrientation();
+  // console.log(Dimensions.get('screen'));
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello world</Text>
+      <View
+        style={{
+          backgroundColor: 'blue',
+          width: '50%',
+          height: landscape ? 100 : '30%',
+        }}
+      ></View>
+      {/* <Text>Hello world</Text> */}
       {/* <TouchableHighlight onPress={() => console.log('Image tapped')}>
         <Image
           // blurRadius={10}
@@ -27,7 +42,7 @@ export default function App() {
           }}
         ></Image>
       </TouchableHighlight> */}
-      <Button
+      {/* <Button
         color="#841584"
         title="Click me"
         onPress={() =>
@@ -35,15 +50,15 @@ export default function App() {
             { text: 'Yes', onPress: () => console.log('You pressed Yes') },
             { text: 'No', onPress: () => console.log('You pressed NO') },
           ])
-        }
-
+        } */}
+      {/* 
         // This works on IOS only
-        // onPress={() =>
-        //   Alert.prompt('Category', 'Please add a category', (text) => {
-        //     console.log(text);
-        //   })
-        // }
-      ></Button>
+        // onPress={() => */}
+      {/* //   Alert.prompt('Category', 'Please add a category', (text) => { */}
+      {/* //     console.log(text); */}
+      {/* //   }) */}
+      {/* // } */}
+      {/* ></Button> */}
     </SafeAreaView>
   );
 }
